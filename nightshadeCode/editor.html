@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<style>
+	head {
+		 background-color: black; 
+		 color: red;
+		 text-align: center; 
+	}
+	body {
+		background-color: black; 
+		color: red;
+	}
+	footer {
+		background-color: black;
+		color: #39FF14; 
+		text-align: center;
+	}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.css"></link>
+<!--import needed codemirror scripts from cloudflare cdn.
+	first, we need our CM instance so that we can spawn an editor:--> 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.js"></script>
+<!--then we can bring in the relevant files for syntax highlighting. in this case, for JS.-->   
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/javascript/javascript.min.js"></script> 
+<head>
+<title>rav3n's coding playground</title>
+</head>
+<body>
+<h2><b style="color:#39FF14">nightshade</b><b style="color:#FF10F0">Code</b></h2>
+<p>Your minimal code editor in the cloud</p>
+<!--insert out codemirror instance below:-->
+<div id="cm">
+	<script type="text/javascript">
+		CodeMirror(document.querySelector('#cm'), {
+		lineNumbers: true, 
+		tabSize: 2, 
+		value: '// nightshade Code by rav3ndust, 2022'
+	});
+	</script> 
+</body>
+<footer>
+<h5><b style="color:#FF10F0">nightshadeCode</b> is a fork of <a href="https://codemirror.net/">CodeMirror</a></h5>
+<p>built and maintained by <a href="https://rav3ndust.xyz">rav3ndust</a></p>
+</footer>
+</html>
