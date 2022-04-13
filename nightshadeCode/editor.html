@@ -15,6 +15,17 @@
 		color: #39FF14; 
 		text-align: center;
 	}
+	.themeChange {
+		background-color: black; 
+		color: #FF3131; 
+	}
+	.langSwitch {
+		background-color: black; 
+		color: #FF3131; 
+	}
+	.breakHelper {
+		background-color: #FF10F0
+	}
 	/* link highlighting (visited, not visited) */ 
 	a:link {color: #FF3131}
 	a:visited {color: white}
@@ -26,7 +37,7 @@
 <!--then we can bring in the relevant files for syntax highlighting. in this case, for JS.-->   
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/javascript/javascript.min.js"></script> 
 <!--we want to use the 'monokai' theme by default, so we include it from the cdn as well:--> 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/monokai.min.css"></link>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/monokai.min.css"></link> <!--monokai--> 
 <head>
 <title>nightshadeCode</title>
 </head>
@@ -44,9 +55,40 @@
 		lineWrapping: true
 	});
 	</script> 
+<br><br>
+<div class="breakHelper">
+	<br>
+</div>
+<h3 style="color:red">Customize Your Editor</h3>
+<p style="color:#39FF14">You can switch up the theming and which language you would like to apply syntax highlighting for in the options below.</p>
+<div class="themeChange">
+	<p>Theme Selection: <select onchange="newTheme()" id="theme-sel">
+		<option selected>monokai</option>
+		<option>dracula</option>
+		<option>material</option>
+		<option>lucario</option>
+		<option>liquibyte</option>
+		<option>midnight</option>
+	</select></p>
+</div>
+<div class="langSwitch">
+	<p>Language Selection: <select onchange="newLang()" id="lang-sel">
+		<option selected>JavaScript</option>
+		<option>HTML</option>
+		<option>Python</option>
+		<option>Ruby</option>
+		<option>C</option>
+		<option>Go</option>
+		<option>Dart</option>
+		</select></p>
+</div>
+<div class="breakHelper">
+	<br>
+</div>
 </body>
 <footer>
 <h5><b style="color:#FF10F0">nightshadeCode</b> is a fork of <a href="https://codemirror.net/">CodeMirror</a></h5>
 <p>built and maintained by <a href="https://rav3ndust.xyz">rav3ndust</a></p>
+<p><a href="#">nightshadeCode Source on GitHub</a></p>
 </footer>
 </html>
