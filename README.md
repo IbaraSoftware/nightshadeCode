@@ -1,7 +1,7 @@
 # nightshadeCode
 A simple, minimal code editor that you can use in the cloud. Powered by [CodeMirror](https://codemirror.net).
 
-[nsCode screenshot 1](nsc-img/nsCodeShot1.png)
+![nsCode screenshot 1](nsc-img/nsCodeShot1.png)
 
 ###### nightshadeCode's text editor.
 
@@ -13,7 +13,7 @@ It is a simple webpage that allows anyone to write code without needing to downl
 
 ### nightshadeCode Current Features
 
-[nsCode screenshot 2](nsc-img/nsCodeShot2.png)
+![nsCode screenshot 2](nsc-img/nsCodeShot2.png)
 
 ###### nightshadeCode's currently supported themes and languages. 
 
