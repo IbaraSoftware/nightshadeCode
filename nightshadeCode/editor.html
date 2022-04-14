@@ -36,7 +36,6 @@
 <!--import needed codemirror scripts from cloudflare cdn.
 	first, we need our CM instance so that we can spawn an editor:--> 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.js"></script>
-<!--then we can bring in the relevant files for syntax highlighting.-->
 <!--JavaScript (selected by default):-->   
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/javascript/javascript.min.js"></script>
 <!--HTML:-->
@@ -55,8 +54,18 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/go/go.min.js"></script>
 <!--Dart:-->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/dart/dart.min.js"></script>
+<!--Crystal:-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/crystal/crystal.min.js"></script>
+<!--Lua:-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/lua/lua.min.js"></script>
 <!--Bash:-->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/shell/shell.min.js"></script>
+<!--PowerShell:-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/powershell/powershell.min.js"></script>
+<!--Markdown:-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/markdown/markdown.min.js"></script>
+<!--Haskell-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/haskell/haskell.min.js"></script>
 <!--link in the themes we want from the CDN-->
 <!--monokai theme (default selection):--> 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/monokai.min.css"></link> 
@@ -70,6 +79,29 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/liquibyte.min.css"></link>
 <!--midnight theme:-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/midnight.min.css"></link>
+<!--night theme:-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/night.min.css"></link>
+<!--xq-light theme:-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/xq-light.min.css"></link>
+<!--shadowfox theme:-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/shadowfox.min.css"></link>
+<!--add in support for autocomplete for supported languages-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/addon/hint/show-hint.min.js"></script> <!--show-hint package-->
+<!--add the show-hint.css package, adds graphical selector-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/addon/hint/show-hint.min.css"></link>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/addon/hint/javascript-hint.min.js"></script>  <!--support for JS autocomplete-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/addon/hint/python-hint.min.js"></script>  <!--support for Python autocomplete-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/addon/hint/ruby-hint.min.js"></script>  <!--support for Ruby autocomplete-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/addon/hint/clike-hint.min.js"></script>  <!--support for C autocomplete-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/addon/hint/go-hint.min.js"></script>  <!--support for Go autocomplete-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/addon/hint/dart-hint.min.js"></script>  <!--support for Dart autocomplete-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/addon/hint/crystal-hint.min.js"></script>  <!--support for Crystal autocomplete-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/addon/hint/lua-hint.min.js"></script>  <!--support for Lua autocomplete-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/addon/hint/haskell-hint.min.js"></script>  <!--support for Haskell autocomplete-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/addon/hint/sh-hint.min.js"></script> <!--support for Bash autocomplete-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/addon/hint/html-hint.min.js"></script> <!--support for HTML autocomplete-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/addon/hint/powershell-hint.min.js"></script> <!--support for Powershell autocomplete-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/addon/hint/markdown-hint.min.js"></script> <!--support for Markdown autocomplete-->
 <head>
 <title>nightshadeCode</title>
 </head>
@@ -82,6 +114,8 @@
 		let editor = CodeMirror(document.querySelector('#cm'), {
 			lineNumbers: true, 
 			tabSize: 4, 
+            extraKeys: { "Ctrl-Space": "autocomplete" },
+            enableCodeFolding: true,
 			styleActiveLine: true,
 			matchBrackets: true,
             indentWithTabs: true,
@@ -103,13 +137,13 @@
 	<p><b><u>Theme Selection:</u></b></p>
     <h5 style="color:aqua">Choose a theme that matches your style.</h5>
     <!--user can select a theme option, and the theme will be applied.-->
-    <p><button onclick="thMonokai()">Monokai</button> | <button onclick="thDracula()">Dracula</button> | <button onclick="thMaterial()">Material</button> | <button onclick="thLucario()">Lucario</button> | <button onclick="thLiquibyte()">Liquibyte</button> | <button onclick="thMidnight()">Midnight</button></p>
+    <p><button onclick="thMonokai()">Monokai</button> | <button onclick="thDracula()">Dracula</button> | <button onclick="thMaterial()">Material</button> | <button onclick="thLucario()">Lucario</button> | <button onclick="thLiquibyte()">Liquibyte</button> | <button onclick="thMidnight()">Midnight</button> | <button onclick="thNight()">Night</button> | <button onclick="thXqlight()">xq-light</button> | <button onclick="thShadowfox()">Shadowfox</button></p>
 </div>
 <div class="langSwitch">
 	<p><b><u>Language Selection:</u></b></p>
     <h5 style="color:aqua">What language are we programming in today?</h5>
     <!--user can select a language option, and the language will be applied.-->
-    <p><button onclick="sel_JavaScript()">JavaScript</button> | <button onclick="sel_HTML()">HTML</button> | <button onclick="sel_Python()">Python</button> | <button onclick="sel_Ruby()">Ruby</button> | <button onclick="sel_C()">C</button> | <button onclick="sel_Go()">Go</button> | <button onclick="sel_Dart()">Dart</button> | <button onclick="sel_Bash()">Bash</button></p>
+    <p><button onclick="sel_JavaScript()">JavaScript</button> | <button onclick="sel_HTML()">HTML</button> | <button onclick="sel_Python()">Python</button> | <button onclick="sel_Ruby()">Ruby</button> | <button onclick="sel_C()">C</button> | <button onclick="sel_Go()">Go</button> | <button onclick="sel_Dart()">Dart</button> | <button onclick="sel_Crystal()">Crystal</button> | <button onclick="sel_Lua()">Lua</button> | <button onclick="sel_Haskell()">Haskell</button> | <button onclick="sel_Bash()">Bash</button> | <button onclick="sel_Powershell()">PowerShell</button> | <button onclick="sel_Markdown()">Markdown</button></p>
 </div>
 <h3 style="color:aliceblue;text-align:center">* * * * * * * * * *</h3>
 <script>
@@ -132,6 +166,15 @@
     }
     function thMidnight() { // loads midnight theme
         editor.setOption('theme', 'midnight');
+    }
+    function thNight() {    // loads night theme
+        editor.setOption('theme', 'night');
+    }
+    function thXqlight() { // loads xq-light theme
+        editor.setOption('theme', 'xq-light');
+    }
+    function thShadowfox() { // loads shadowfox theme
+        editor.setOption('theme', 'shadowfox');
     }
     // LANG FUNCTIONS:
     function sel_JavaScript() { // loads javascript language
@@ -166,6 +209,26 @@
     function sel_Bash() {   // loads Bash
         editor.setOption('mode', 'shell');
         editor.setValue('#!/bin/bash'); 
+    }
+    function sel_Crystal() {    // loads Crystal
+        editor.setOption('mode', 'crystal');
+        editor.setValue('# nsCode - Crystal support');
+    }
+    function sel_Markdown() {   // loads Markdown
+        editor.setOption('mode', 'markdown');
+        editor.setValue('[:// nsCode - Markdown support]');
+    }
+    function sel_Lua() {    // loads Lua
+        editor.setOption('mode', 'lua');
+        editor.setValue('-- nsCode - Lua support');
+    }
+    function sel_Haskell() {
+        editor.setOption('mode', 'haskell');
+        editor.setValue('-- nsCode - Haskell support');
+    }
+    function sel_Powershell() {
+        editor.setOption('mode', 'powershell');
+        editor.setValue('# nsCode - Powershell support');
     }
 </script>
 <div class="breakHelper">
