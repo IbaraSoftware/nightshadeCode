@@ -17,11 +17,13 @@
 	}
 	.themeChange {
 		background-color: black; 
-		color: #FF3131; 
+		color: #FF3131;
+        text-align: center; 
 	}
 	.langSwitch {
 		background-color: black; 
 		color: #FF3131; 
+        text-align: center;
 	}
 	.breakHelper {
 		background-color: #FF10F0
@@ -34,61 +36,144 @@
 <!--import needed codemirror scripts from cloudflare cdn.
 	first, we need our CM instance so that we can spawn an editor:--> 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.js"></script>
-<!--then we can bring in the relevant files for syntax highlighting. in this case, for JS.-->   
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/javascript/javascript.min.js"></script> 
-<!--we want to use the 'monokai' theme by default, so we include it from the cdn as well:--> 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/monokai.min.css"></link> <!--monokai--> 
+<!--then we can bring in the relevant files for syntax highlighting.-->
+<!--JavaScript (selected by default):-->   
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/javascript/javascript.min.js"></script>
+<!--HTML:-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/htmlmixed/htmlmixed.min.js"></script>
+<!--CSS:-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/css/css.min.js"></script>
+<!--XML:-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/xml/xml.min.js"></script>
+<!--Python:-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/python/python.min.js"></script>
+<!--Ruby:-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/ruby/ruby.min.js"></script>
+<!--C:-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/clike/clike.min.js"></script>
+<!--Go:-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/go/go.min.js"></script>
+<!--Dart:-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/dart/dart.min.js"></script>
+<!--Bash:-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/shell/shell.min.js"></script>
+<!--link in the themes we want from the CDN-->
+<!--monokai theme (default selection):--> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/monokai.min.css"></link> 
+<!--dracula theme:-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/dracula.min.css"></link> 
+<!--material theme:-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/material.min.css"></link>
+<!--lucario theme:-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/lucario.min.css"></link>
+<!--liquibyte theme:-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/liquibyte.min.css"></link>
+<!--midnight theme:-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/theme/midnight.min.css"></link>
 <head>
 <title>nightshadeCode</title>
 </head>
 <body>
-<h2><b style="color:#39FF14">nightshade</b><b style="color:#FF10F0">Code</b></h2>
-<p>Your minimal code editor in the cloud</p>
+<h2><b style="color:red">/</b><b style="color:yellow">~</b><b style="color:#39FF14">nightshade</b><b style="color:#FF10F0">Code</b><b style="color:pink">~</b><b style="color:red">\</b></h2>
+<p>Your minimal code editor in the cloud ☁️</p>
 <!--insert out codemirror instance below:-->
 <div id="cm">
 	<script type="text/javascript">
-		CodeMirror(document.querySelector('#cm'), {
-		lineNumbers: true, 
-		tabSize: 2, 
-		theme: 'monokai',
-		value: '// nightshade Code by rav3ndust, 2022',
-		lineWrapping: true
-	});
+		let editor = CodeMirror(document.querySelector('#cm'), {
+			lineNumbers: true, 
+			tabSize: 4, 
+			styleActiveLine: true,
+			matchBrackets: true,
+			theme: 'monokai',
+			mode: 'javascript', 
+			value: '// nightshade Code by rav3ndust, 2022',
+			lineWrapping: true
+		});
 	</script> 
 <br><br>
 <div class="breakHelper">
 	<br>
 </div>
-<h3 style="color:red">Customize Your Editor</h3>
-<p style="color:#39FF14">You can switch up the theming and which language you would like to apply syntax highlighting for in the options below.</p>
+<h3 style="color:hotpink;text-align:center">Customize Your Editor</h3>
+<p style="color:#39FF14;text-align:center">You can switch up the theming and which language you would like to apply syntax highlighting for in the options below.</p>
+<h6 style="color:aquamarine;text-align:center"><i>Note that more options will become available over time.</i></h6>
+<h3 style="color:aliceblue;text-align:center">* * * * * * * * * *</h3>
 <div class="themeChange">
-	<p>Theme Selection: <select onchange="newTheme()" id="theme-sel">
-		<option selected>monokai</option>
-		<option>dracula</option>
-		<option>material</option>
-		<option>lucario</option>
-		<option>liquibyte</option>
-		<option>midnight</option>
-	</select></p>
+	<p><b><u>Theme Selection:</u></b></p>
+    <h5 style="color:aqua">Choose a theme that matches your style.</h5>
+    <!--user can select a theme option, and the theme will be applied.-->
+    <p><button onclick="thMonokai()">Monokai</button> | <button onclick="thDracula()">Dracula</button> | <button onclick="thMaterial()">Dracula</button> | <button onclick="thLucario()">Lucario</button> | <button onclick="thLiquibyte()">Liquibyte</button> | <button onclick="thMidnight()">Midnight</button></p>
 </div>
 <div class="langSwitch">
-	<p>Language Selection: <select onchange="newLang()" id="lang-sel">
-		<option selected>JavaScript</option>
-		<option>HTML</option>
-		<option>Python</option>
-		<option>Ruby</option>
-		<option>C</option>
-		<option>Go</option>
-		<option>Dart</option>
-		</select></p>
+	<p><b><u>Language Selection:</u></b></p>
+    <h5 style="color:aqua">What language are we programming in today?</h5>
+    <!--user can select a language option, and the language will be applied.-->
+    <p><button onclick="sel_JavaScript()">JavaScript</button> | <button onclick="sel_HTML()">HTML</button> | <button onclick="sel_Python()">Python</button> | <button onclick="sel_Ruby()">Ruby</button> | <button onclick="sel_C()">C</button> | <button onclick="sel_Go()">Go</button> | <button onclick="sel_Dart()">Dart</button> | <button onclick="sel_Bash()">Bash</button></p>
 </div>
+<h3 style="color:aliceblue;text-align:center">* * * * * * * * * *</h3>
+<script>
+	// scripts for applying functions when buttons are clicked for editor customization.
+    // THEME FUNCTIONS: 
+    function thMonokai() {  // loads monokai theme
+        editor.setOption('theme', 'monokai');
+    }
+    function thDracula() {  // laods Dracula theme
+        editor.setOption('theme', 'dracula');
+    }
+    function thMaterial() { // loads material theme
+        editor.setOption('theme', 'material');
+    }
+    function thLucario() {  // loads lucario theme
+        editor.setOption('theme', 'lucario');
+    }
+    function thLiquibyte() {    // loads liquibyte theme
+        editor.setOption('theme', 'liquibyte');
+    }
+    function thMidnight() { // loads midnight theme
+        editor.setOption('theme', 'midnight');
+    }
+    // LANG FUNCTIONS:
+    function sel_JavaScript() { // loads javascript language
+        editor.SetOption('mode', 'javascript');
+        editor.setValue('// nsCode - Javascript support'); 
+    } 
+    function sel_HTML() {   // loads mixed HTML
+        editor.setOption('mode', 'htmlmixed');
+        editor.setOption('HtmlMode', true);
+        editor.setValue('<!doctype html>\n<html>\n<head>\n<title></title>\n</head>\n<body>\n</body>\n</html>');
+    }
+    function sel_Python() { // loads Python
+        editor.setOption('mode', 'python');
+        editor.setValue('# nsCode - Python support');
+    } 
+    function sel_Ruby() {   // loads Ruby
+        editor.setOption('mode', 'ruby');
+        editor.setValue('# nsCode - Ruby support');
+    }
+    function sel_C() {  // loads C
+        editor.setOption('mode', 'text/x-csrc');
+        editor.setValue('#include <stdio.h>\nvoid main() {\n\n}');
+    }
+    function sel_Go() { // loads Golang
+        editor.setOption('mode', 'go');
+        editor.setValue('package main'); 
+    }
+    function sel_Dart() {   // loads Dart
+        editor.setOption('mode', 'dart');
+        editor.setValue('// nsCode - Dart support');
+    }
+    function sel_Bash() {   // loads Bash
+        editor.setOption('mode', 'shell');
+        editor.setValue('#!/bin/bash'); 
+    }
+</script>
 <div class="breakHelper">
 	<br>
 </div>
 </body>
 <footer>
-<h5><b style="color:#FF10F0">nightshadeCode</b> is a fork of <a href="https://codemirror.net/">CodeMirror</a></h5>
+<h5><b style="color:#FF10F0">nightshadeCode</b> is powered by <a href="https://codemirror.net/">CodeMirror</a></h5>
 <p>built and maintained with 💖 by <a href="https://rav3ndust.xyz">rav3ndust</a></p>
-<p>🤖🤖<a href="#">Check out our source code on GitHub!</a>🙂🙂</p>
+<p>🤖🤖<a href="https://github.com/Nightshade-Foundation/nightshadeCode">Check out our source code on GitHub!</a>🙂🙂</p>
 </footer>
 </html>
