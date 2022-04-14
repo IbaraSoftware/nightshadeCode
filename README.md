@@ -1,6 +1,10 @@
 # nightshadeCode
 A simple, minimal code editor that you can use in the cloud. Powered by [CodeMirror](https://codemirror.net).
 
+[nsCode screenshot 1](nsc-img/nsCodeShot1.png)
+
+###### nightshadeCode's text editor.
+
 **nightshadeCode** is now live on GH Pages - visit it [here](https://nightshade-foundation.github.io/nightshadeCode/) and get to programming in the cloud!
 
 ### What Does nightshadeCode Do? 
@@ -8,6 +12,10 @@ A simple, minimal code editor that you can use in the cloud. Powered by [CodeMir
 It is a simple webpage that allows anyone to write code without needing to download a lot of things to their local computer. Don't have access to your IDE, or just want to code up a quick concept? This is a great place for you to do it, without the need to worry about downloading development software and the like. 
 
 ### nightshadeCode Current Features
+
+[nsCode screenshot 2](nsc-img/nsCodeShot2.png)
+
+###### nightshadeCode's currently supported themes and languages. 
 
 Currently, **nightshadeCode** features several nice-looking themes for you to choose from, and a good deal of supported programming and markup languages, including: 
 
